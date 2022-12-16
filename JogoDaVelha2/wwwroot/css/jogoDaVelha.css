@@ -1,0 +1,89 @@
+
+body {
+    background-color: rgb(107, 181, 189);
+}
+
+p{
+    margin: 0px;
+}
+
+.corCinza{
+    background-color: darkgray;
+}
+
+.corCinzaClaro{
+    background-color: azure;
+    border-radius: 5px;
+}
+
+.botoes{
+    height: 70px;
+    width: 70px;
+    margin: 1px;
+    font-size: 35px;
+}
+
+.botoes:hover {
+    background-color: aquamarine;
+}
+
+.corX {
+    background-color: green !important;
+}
+
+.corY {
+    background-color: goldenrod !important;
+}
+
+.campoTexto{
+    width: 70%;
+}
+
+.centro{
+    text-align: center;
+}
+
+.alinhaEsquerda{
+    text-align: left;
+}
+
+.alinhaDireita {
+    text-align: right;
+    background-color: khaki;
+}
+
+.margemSuperiorInferior10 {
+    margin: 10px 0 10px 0;
+}
+
+.margemSuperiorInferior20{
+    margin: 20px 0 20px 0;
+}
+
+.margemDireita10 {
+    margin-right: 10px;
+}
+
+.margemEsquerda10 {
+    margin-left: 10px;
+}
+
+.paddingIguais {
+    padding: 10px;
+}
+
+.paddingEsquerdaDireita{
+    padding: 5px 0 0 5px;
+}
+
+.paddingZero{
+    padding: 0px;
+}
+
+.setaBuscar{
+    font-size: 1rem;
+}
+
+.ocuparEspaco{
+    flex-grow: 1;
+}

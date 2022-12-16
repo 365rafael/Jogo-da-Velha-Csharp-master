@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "Jogo";
+}
+
+@section Css{
+    <link rel="stylesheet" href="~/css/jogoDaVelha.css" asp-append-version="true" />
+}
+
+@section Scripts{
+    <script src="~/js/jogoDaVelha.js" asp-append-version="true"></script>
+}
+
+<div id="app">
+
+    <div class="row">
+
+        <div class="col-md-12 col-lg-6">
+
+            <div v-if="jogo != null">
+
+                <h3>Bem vindo ao Jogo da Velha online :)</h3>
+
+                <br />
+
+                <p>Convide algum amigo(a) para jogar com você.</p>
+                <p>Basta inserir o e-mail do seu amigo(a) e clicar no botão "Convidar"</p>
+                <p>Seu / sua amigo(a) precisa estar logado(a).</p>
+
+                <div class="row">
+
+                    <div class="row margemSuperiorInferior20">
+                        <input type="text" class="col-8" id="campoEmail" placeholder="E-mail"/>
+                        <a href="#" class="col-2 btn btn-success margemEsquerda10 ocuparEspaco" @@click="convidarAmigo()">
+                            Convidar
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div v-if="jogo.ganhador != '-'" class="row">
+                    <div class="col-12">
+                        <input class="btn btn-warning" type="button" @@click="criarJogo()" value="Novo jogo" />
+                    </div>
+                </div>
+
+                <br />
+
+                <h3>{{ jogo.mensagem }}</h3>
+
+            </div>
+
+            <div v-else>
+                <p v-if="criarJogo()"></p>
+            </div>
+
+            <div class="centro" v-if="jogo != null">
+
+                <!-- LINHA 0 -->
+
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(0), corY: jogadorY(0)}" @@click="jogar(0,0)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(1), corY: jogadorY(1)}" @@click="jogar(0,1)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(2), corY: jogadorY(2)}" @@click="jogar(0,2)"/>
+
+                <br />
+                <!-- LINHA 1 -->
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(3), corY: jogadorY(3)}" @@click="jogar(1,0)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(4), corY: jogadorY(4)}" @@click="jogar(1,1)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(5), corY: jogadorY(5)}" @@click="jogar(1,2)"/>
+
+                <br />
+                <!-- LINHA 2 -->
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(6), corY: jogadorY(6)}" @@click="jogar(2,0)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(7), corY: jogadorY(7)}" @@click="jogar(2,1)"/>
+                <input type="button" value="-" class="btn btn-light botoes sendButton" :class="{corX: jogadorX(8), corY: jogadorY(8)}" @@click="jogar(2,2)"/>
+
+
+            </div>
+            <br />
+
+        </div>
+
+        <div class="corCinza paddingIguais col-md-12 col-lg-6">
+
+            <div class="row margemSuperiorInferior20">
+                <input type="text" id="messageInput" class="col-8" placeholder="Mensagem..."/>
+                <input type="button" class="col-2 btn btn-primary margemEsquerda10 ocuparEspaco" id="idBotaoEnviarMsg" value="Enviar" @@click="enviarMensagem(null)" />
+            </div>
+
+            <div class="col-12 corCinzaClaro paddingIguais" id="messagesList">
+                <ul id="messagesList"></ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
